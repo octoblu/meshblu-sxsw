@@ -1,0 +1,36 @@
+language: node_js
+node_js:
+- '0.10'
+before_install:
+  - npm install npm -g
+before_deploy:
+  - npm install ws browserify@12.0.2 coffeeify@2.0.1
+  - mkdir -p deploy/meshblu-sxsw/latest
+  - mkdir -p deploy/meshblu-sxsw/$TRAVIS_TAG
+  - node_modules/.bin/browserify -t coffeeify -s Connector connector.coffee > deploy/meshblu-sxsw/latest/meshblu-sxsw.js
+  - gzip deploy/meshblu-sxsw/latest/meshblu-sxsw.js
+  - mv deploy/meshblu-sxsw/latest/meshblu-sxsw.js.gz deploy/meshblu-sxsw/latest/meshblu-sxsw.js
+  - cp deploy/meshblu-sxsw/latest/meshblu-sxsw.js deploy/meshblu-sxsw/$TRAVIS_TAG/meshblu-sxsw.js
+deploy:
+  - provider: s3
+    region: us-west-2
+    skip_cleanup: true
+    detect_encoding: true
+    access_key_id: replace-me
+    secret_access_key:
+      secure: replace-me
+    bucket: octoblu-cdn
+    local-dir: deploy
+    upload-dir: js
+    on:
+      tags: true
+      all_branches: true
+  - provider: npm
+    skip_cleanup: true
+    clean_up: false
+    email: replace-me
+    api_key:
+      secure: replace-me
+    on:
+      tags: true
+      all_branches: true

@@ -1,0 +1,47 @@
+{
+  "port": "auto-detect",
+  "interval": "500",
+  "components": [{
+    "name": "lb",
+    "action": "esc",
+    "pin": "5"
+  }, {
+    "name": "lf",
+    "action": "esc",
+    "pin": "9"
+  }, {
+    "name": "rb",
+    "action": "esc",
+    "pin": "3"
+  },
+  {
+    "name": "rf",
+    "action": "esc",
+    "pin": "6"
+  },
+  {
+    "name": "one",
+    "action": "digitalWrite",
+    "pin": "2"
+  },
+  {
+    "name": "two",
+    "action": "digitalWrite",
+    "pin": "8"
+  },
+  {
+    "name": "three",
+    "action": "digitalWrite",
+    "pin": "10"
+  },
+  {
+    "name": "four",
+    "action": "digitalWrite",
+    "pin": "11"
+  },
+  {
+    "name": "five",
+    "action": "digitalWrite",
+    "pin": "12"
+  }]
+}

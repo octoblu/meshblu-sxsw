@@ -1,0 +1,38 @@
+{
+  "name": "meshblu-sxsw",
+  "repository": "octoblu/meshblu-sxsw",
+  "version": "1.0.1",
+  "main": "connector.js",
+  "scripts": {
+    "preinstall": "node -e \"try{require('./skip-install.js')}catch(e){}\"",
+    "start": "node command.js",
+    "test": "exit 0"
+  },
+  "dependencies": {
+    "coffee-script": "^1.10.0",
+    "debug": "^2.2.0",
+    "kryten": "^1.0.13",
+    "lodash": "^4.6.1",
+    "mecanum": "^1.0.4",
+    "meshblu": "^1.32.0",
+    "meshblu-config": "^4.0.0"
+  },
+  "bundledDependencies": [
+    "request",
+    "tar",
+    "fstream"
+  ],
+  "platformDependencies": {
+    "darwin": [],
+    "win32": [],
+    "win64": [],
+    "linux": [],
+    "android": [],
+    "ios": []
+  },
+  "license": "MIT",
+  "keywords": [
+    "meshblu-connector",
+    "gateblu"
+  ]
+}
